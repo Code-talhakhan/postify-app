@@ -1,0 +1,112 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI}
+body{background:#0b0b0f;color:white;transition:.3s}
+body.light{background:#f4f4f4;color:#111}
+
+.topbar{
+display:flex;justify-content:space-between;align-items:center;
+padding:18px 40px;background:#111;
+box-shadow:0 5px 20px rgba(0,0,0,.6);
+}
+
+.logo{
+font-size:28px;font-weight:bold;
+background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+-webkit-background-clip:text;color:transparent
+}
+
+.topbar button{
+margin-left:10px;padding:10px 16px;border:none;border-radius:12px;
+background:#dd2a7b;color:white;cursor:pointer
+}
+
+.create-card, .post {
+width:650px;max-width:95%;margin:40px auto;padding:22px;
+background:#111;border-radius:22px;
+box-shadow: -5px 0 0px #dd2a7b, 0 20px 40px rgba(0,0,0,.6);
+display:flex;flex-direction:column;gap:14px;
+position:relative; border:none;
+}
+
+.create-card input, .create-card textarea, .modal-box input, .modal-box textarea {
+padding:14px;border-radius:14px;border:1px solid #222;
+background:#0f0f14;color:white;resize:none;
+transition:.25s; outline: none;
+}
+.create-card input:focus, .create-card textarea:focus,
+.modal-box input:focus, .modal-box textarea:focus {
+border-color: #dd2a7b;
+}
+
+.create-card textarea{height:100px;overflow-y:auto}
+
+body.light .create-card, body.light .post {background:white;color:black;border:1px solid #ccc}
+body.light .create-card input, body.light .create-card textarea {background:white;color:black;border:1px solid #ccc}
+
+.create-head{display:flex;align-items:center;gap:12px}
+.dp{
+width:45px;height:45px;border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-weight:bold;background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af); color:white;
+}
+
+.share-text span{
+background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+-webkit-background-clip:text;color:transparent;font-weight:bold
+}
+
+.create-inputs{display:flex;flex-direction:column;gap:10px}
+
+/* ICON STYLING */
+.create-footer{display:flex;justify-content:space-between; align-items: center;}
+.footer-icons {display: flex; gap: 15px; font-size: 18px;}
+.footer-icons i {
+    cursor: pointer;
+    background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: 0.3s;
+}
+.footer-icons i:hover { transform: scale(1.2); }
+
+.create-footer button{
+padding:12px 24px;border:none;border-radius:14px;
+background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+color:white;cursor:pointer
+}
+
+#feed{width:650px;max-width:95%;margin:auto;display:flex;flex-direction:column;gap:28px}
+
+.post-head{display:flex;justify-content:space-between}
+.userbox{display:flex;gap:10px;align-items:center}
+.title{
+font-size:24px; 
+margin:16px 0 8px;font-weight:bold;
+background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+-webkit-background-clip:text;color:transparent
+}
+.time{font-size:12px;opacity:.7}
+
+.menu{cursor:pointer;font-size:20px}
+.dropdown{
+position:absolute;right:20px;top:55px;
+background:#1a1a22;border-radius:14px;display:none;overflow:hidden;z-index: 5;
+}
+.dropdown div{padding:12px 20px;cursor:pointer;display:flex;gap:8px;align-items:center}
+.dropdown div:hover{background:#2a2a33}
+
+.actions{margin-top:14px;display:flex;gap:28px;font-size:22px}
+.actions i{cursor:pointer;transition:.2s}
+.liked{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);-webkit-background-clip:text;color:transparent}
+
+.comment-box{margin-top:14px;display:none;gap:10px}
+.comment-box input{flex:1;padding:10px;border-radius:10px;border:none;background:#1a1a22;color:white}
+
+.modal{
+position:fixed;inset:0;background:rgba(0,0,0,.8);
+display:none;align-items:center;justify-content:center;z-index: 100;
+}
+.modal-box{background:#111;padding:25px;border-radius:20px;text-align:center;width: 500px;}
+.modal-actions{margin-top:15px}
+.modal button{margin:5px;padding:10px 18px;border:none;border-radius:10px;cursor:pointer}
+#confirm{background:#dd2a7b;color:white}
+#cancel, #cancelEdit{background:#444;color:white}
