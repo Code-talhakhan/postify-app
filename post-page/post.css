@@ -7,6 +7,8 @@ display:flex;justify-content:space-between;align-items:center;
 padding:18px 40px;background:#111;
 box-shadow:0 5px 20px rgba(0,0,0,.6);
 }
+/* Light Navbar Fix */
+body.light .topbar { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
 
 .logo{
 font-size:28px;font-weight:bold;
@@ -39,8 +41,9 @@ border-color: #dd2a7b;
 
 .create-card textarea{height:100px;overflow-y:auto}
 
-body.light .create-card, body.light .post {background:white;color:black;border:1px solid #ccc}
-body.light .create-card input, body.light .create-card textarea {background:white;color:black;border:1px solid #ccc}
+/* Light Theme Adjustments */
+body.light .create-card, body.light .post {background:white;color:black;border:1px solid #ddd; box-shadow: -5px 0 0px #dd2a7b, 0 10px 20px rgba(0,0,0,0.05);}
+body.light .create-card input, body.light .create-card textarea {background:#f9f9f9;color:black;border:1px solid #ccc}
 
 .create-head{display:flex;align-items:center;gap:12px}
 .dp{
@@ -56,7 +59,6 @@ background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
 
 .create-inputs{display:flex;flex-direction:column;gap:10px}
 
-/* ICON STYLING */
 .create-footer{display:flex;justify-content:space-between; align-items: center;}
 .footer-icons {display: flex; gap: 15px; font-size: 18px;}
 .footer-icons i {
@@ -64,9 +66,7 @@ background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
     background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
     -webkit-background-clip: text;
     color: transparent;
-    transition: 0.3s;
 }
-.footer-icons i:hover { transform: scale(1.2); }
 
 .create-footer button{
 padding:12px 24px;border:none;border-radius:14px;
@@ -91,8 +91,12 @@ background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
 position:absolute;right:20px;top:55px;
 background:#1a1a22;border-radius:14px;display:none;overflow:hidden;z-index: 5;
 }
+/* Light Dropdown Fix */
+body.light .dropdown { background: #fff; border: 1px solid #ddd; box-shadow: 0 5px 15px rgba(0,0,0,0.1); color: #111; }
+
 .dropdown div{padding:12px 20px;cursor:pointer;display:flex;gap:8px;align-items:center}
 .dropdown div:hover{background:#2a2a33}
+body.light .dropdown div:hover{background:#f0f0f0}
 
 .actions{margin-top:14px;display:flex;gap:28px;font-size:22px}
 .actions i{cursor:pointer;transition:.2s}
@@ -100,12 +104,19 @@ background:#1a1a22;border-radius:14px;display:none;overflow:hidden;z-index: 5;
 
 .comment-box{margin-top:14px;display:none;gap:10px}
 .comment-box input{flex:1;padding:10px;border-radius:10px;border:none;background:#1a1a22;color:white}
+/* Light Comment Box Fix */
+body.light .comment-box input { background: #f0f0f0; color: #111; border: 1px solid #ccc; }
+
+/* Arrow Color Fix */
+.comment-box .send { background: none; border: none; color: #dd2a7b; font-size: 20px; cursor: pointer; }
 
 .modal{
 position:fixed;inset:0;background:rgba(0,0,0,.8);
 display:none;align-items:center;justify-content:center;z-index: 100;
 }
 .modal-box{background:#111;padding:25px;border-radius:20px;text-align:center;width: 500px;}
+body.light .modal-box { background: white; color: black; }
+
 .modal-actions{margin-top:15px}
 .modal button{margin:5px;padding:10px 18px;border:none;border-radius:10px;cursor:pointer}
 #confirm{background:#dd2a7b;color:white}
