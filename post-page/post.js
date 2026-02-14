@@ -83,7 +83,7 @@ document.getElementById("cancel").onclick=()=>document.getElementById("modal").s
 };
 }
 
-// Sahi Edit Function (Modal)
+// Edit Function (Modal)
 const editBtn=div.querySelector(".edit");
 if(editBtn){
 editBtn.onclick=()=>{
