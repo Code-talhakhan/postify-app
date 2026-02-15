@@ -1,11 +1,12 @@
 const user = JSON.parse(localStorage.getItem("loggedInUser"));
 if (!user) location.href = "../login-page/index.html";
 
-// Signup Name Logic
+//User ka naam ya email se username nikalna aur top bar mein display karna
 const signupName = user.name || user.email.split("@")[0];
 userDp.textContent = signupName[0].toUpperCase();
 userNameDisplay.textContent = signupName;
 
+//logout and theme
 logoutBtn.onclick = () => {
     localStorage.removeItem("loggedInUser");
     location.href = "../login-page/index.html";
@@ -13,9 +14,11 @@ logoutBtn.onclick = () => {
 
 themeToggle.onclick = () => document.body.classList.toggle("light");
 
+//LocalStorage se posts uthana ya khali array rakhna
 let posts = JSON.parse(localStorage.getItem("posts")) || [];
 let editId = null;
 
+//create new post
 postBtn.onclick = () => {
     if (!title.value || !content.value) return;
     posts.unshift({
@@ -33,6 +36,7 @@ postBtn.onclick = () => {
     content.value = "";
 };
 
+//Data ko save karne ka function
 function save() {
     localStorage.setItem("posts", JSON.stringify(posts));
 }
@@ -44,6 +48,7 @@ function render() {
         const div = document.createElement("div");
         div.className = "post";
 
+//Post ka HTML structure banana
         div.innerHTML = `
 <div class="post-head">
     <div class="userbox">
@@ -71,14 +76,21 @@ function render() {
     <button class="send">➤</button>
 </div>
 <div class="comments">
-    ${p.comments.map(c => `<div class="comment"><b>${c.name || c.email.split("@")[0]}:</b> ${c.text}</div>`).join("")}
+    ${p.comments.map(c => `
+        <div class="comment">
+            <div class="comment-dp">${(c.name || c.email)[0].toUpperCase()}</div>
+            <div><b>${c.name || c.email.split("@")[0]}:</b> ${c.text}</div>
+        </div>
+    `).join("")}
 </div>
 `;
 
+//dropdown menu
         const menu = div.querySelector(".menu");
         const drop = div.querySelector(".dropdown");
         menu.onclick = () => drop.style.display = drop.style.display === "block" ? "none" : "block";
 
+        //delete logic
         const del = div.querySelector(".delete");
         if (del) {
             del.onclick = () => {
@@ -92,6 +104,7 @@ function render() {
             };
         }
 
+        //edit logic
         const editBtn = div.querySelector(".edit");
         if (editBtn) {
             editBtn.onclick = () => {
@@ -102,17 +115,20 @@ function render() {
             };
         }
 
+        //like logic
         div.querySelector(".like").onclick = () => {
             if (p.likes.includes(user.email)) p.likes = p.likes.filter(e => e !== user.email);
             else p.likes.push(user.email);
             save(); render();
         };
 
+        //COMMENT BOX TOGGLE
         div.querySelector(".commentBtn").onclick = () => {
             const box = div.querySelector(".comment-box");
             box.style.display = box.style.display === "flex" ? "none" : "flex";
         };
 
+        //comment logic
         const send = div.querySelector(".send");
         const input = div.querySelector("input");
         send.onclick = () => {
@@ -129,6 +145,7 @@ function render() {
     });
 }
 
+//EDIT CONFIRMATION LOGIC
 document.getElementById("confirmEdit").onclick = () => {
     const p = posts.find(x => x.id === editId);
     if (p) {
